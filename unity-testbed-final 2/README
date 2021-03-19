@@ -1,0 +1,77 @@
+README
+
+SpaceEnvironment Unity Project
+	This unity environment is a two user environment. One user is the commander
+ 	and the other is the participant.
+
+Commander: 
+	The commander can send messages to the participant through the chat box. The 
+	commander's scene view overlooks the whole space environment, and includes a
+	small first-person view window in the top right corner which shows the first-
+	person view of the robot participant. It is expected that the commander runs
+	the environment through an OS application build or in the unity inspector so
+	that chat messages and task performance can be logged to a local text file. 
+
+Participant:
+	The participant can also send messages through the chat box to the commander.
+	The participant controls a robot which can pick and place certain objects in
+	the environment. The participant can also interact with certain objects such
+	as switches and doors, all which have their own unique interactions. There can
+	only be one concurrent participant at a time in the hurdle test room. If more
+	participants attempt to join the room, they will be disconnected from the 
+	room and informed through an on screen message to wait for the current test to
+	finish. The client build is a WebGL build that will be run in a browser. The
+	participant has access to a "notes" screen to take notes about certain objects
+	encountered during the task. 
+
+The Task: 
+	The commander will tell the participant to move certain objects to certain 
+	locations during the task. The participant is allowed to ask questions about
+	the environment and objects. To complete the task correctly, the participant
+	has to interact with multiple objects such as doors and switch panels. 
+
+Unity:
+	The project is split up by scenes. There are four scenes. Two for the 
+	commander and two for the participant. The participant is referred to as the
+	"Player" and the commander is referred to as a "Spectator" by scene. There are
+	tutorial and main task scenes for both the commander and participant. 
+
+Photon:
+	The unity project uses photon 2 to allow for the network connection. The 
+	commander will run the US server and host the "hurdle test room" where the 
+	task will be run. The photon view ID must be 3 on both the server and client
+	end (Scene -> Managers). 
+
+Scripts (Assets/Scripts/LUCI Scripts/): 
+
+	PUN_Manager.cs
+	* This script handles the network connection and most photon relevant code.
+	  Object synchronization, connection managing, and chat functions are handled
+	  with this script, along with the help of TransformObject.cs. 
+	
+	InteractOnClick.cs
+	* This script handles most interactions that occur through the use of mouse
+	  clicks such as picking up objects, placing objects, or interacting with 
+	  switch panels. 
+
+	Player_Controller.cs
+	* This script handles player movement, namely, changing the position of the
+	  robot and rotating the robot, which happens through the use of keypresses.
+
+	ChatManager.cs
+	* This script handles most chat functions along with PUN_Manager.cs. It also
+	  handles data logging for the commander side. 
+
+	PadManager.cs
+	* This script manages the visibility of the "pads" which are unity GameObjects
+	  that can be clicked on to place objects above. The pads toggle on and off 
+	  many times throughout the task. There are a few niche pads which are used for
+	  specific objects. These pads are managed by SimPadManager.cs and 
+	  BypassPadManager.cs. 
+
+	CanvasManager.cs
+	* This script manages the toggling between the "Notes" canvas screen and the 
+	  main canvas screen, which are the two different GUI views which can be seen
+	  by the participant during the task. 
+
+TODO: Maybe add information on internal unity inspector specifics? 

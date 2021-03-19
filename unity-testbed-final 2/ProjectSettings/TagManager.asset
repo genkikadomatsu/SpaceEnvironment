@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - EnergyTube
+  - Finger 2
+  - door
+  - Robot
+  - Finger 3
+  - Finger 1
+  - SmallFullPad
+  - SmallEmptyPad
+  - SmallPickupable
+  - BigFullPad
+  - BigPickupable
+  - Switch
+  - Passcode
+  - Interact
+  - BigEmptyPad
+  - IgnoreClick
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - robot
+  - Interact
+  - IgnoreClick
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
